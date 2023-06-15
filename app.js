@@ -1,7 +1,7 @@
 const express= require("express");
 const request=require("request");
 const bodyParser=require("body-parser");
-// const https = require("https");
+const https = require("https");
 
 const app=express();
 
@@ -19,14 +19,14 @@ app.post("/",function(req,res){
     console.log(name,email);
 })
 
-// const request=https.request(url,options,function(response){
-//     if (response.statusCode === 200){
-//         res.send("successfully subscribed");
-//     }
-//     else{
-//         res.send("there was an error with signing up");
-//     }
-// })
+const request=https.request(url,options,function(response){
+    if (response.statusCode === 200){
+        res.send("successfully subscribed");
+    }
+    else{
+        res.send("there was an error with signing up");
+    }
+})
 
 
 app.listen(3000,function(){
